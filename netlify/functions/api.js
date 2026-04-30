@@ -1,6 +1,6 @@
 /**
  * Netlify Serverless Function — wraps the Express API router.
- * All /api/* requests are redirected here via netlify.toml.
+ * Redirects from /api/* arrive here as /.netlify/functions/api/*
  */
 const serverless = require("serverless-http");
 const express = require("express");
@@ -8,7 +8,9 @@ const apiRouter = require("../../server/app");
 
 const app = express();
 
-/* Mount the shared router at the Netlify function path */
+/* Mount at both paths to handle direct calls and redirects */
 app.use("/.netlify/functions/api", apiRouter);
+app.use("/api", apiRouter);
+app.use("/", apiRouter);
 
 module.exports.handler = serverless(app);

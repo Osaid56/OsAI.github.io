@@ -1,0 +1,23 @@
+{
+  "name": "osaid-mart",
+  "version": "2.0.0",
+  "description": "Osaid Mart — Fresh groceries online with user auth, persistent cart, and Neon PostgreSQL",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "seed": "node server/seed.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.3",
+    "uuid": "^10.0.0"
+  }
+}
